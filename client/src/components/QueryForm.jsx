@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import SearchIcon from "@mui/icons-material/Search";
 
 const BACKEND_URL = ""
-
+const url = "http://localhost:2021/process"
 export default function QueryForm({ setData }) {
   const [query, setQuery] = useState("");
 
@@ -21,14 +21,18 @@ export default function QueryForm({ setData }) {
     event.preventDefault();
 
     console.log("submited")
-
-    fetch(`${BACKEND_URL}/api/${query}`)
-      .then(response => response.json())
-      .then(json => setData(json))
+    let data = {"query": query,
+    "mode": "caption"}
+    fetch(url,{
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    // mode: 'no-cors', // no-cors, *cors, same-origin
+    body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((data) => setData(data))
       .catch(err => console.log('Error: ', err))
   }
 
-  console.log(query)
   return (
     <Box>
       <form onSubmit={handleSubmit}>

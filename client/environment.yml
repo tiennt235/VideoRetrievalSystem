@@ -1,0 +1,4 @@
+name: thesis
+channels:
+  - defaults
+prefix: /opt/conda/envs/thesis

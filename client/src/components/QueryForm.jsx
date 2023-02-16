@@ -53,7 +53,6 @@ export default function QueryForm({ setData }) {
               }}
               fullWidth
               variant="outlined"
-              place
               value={query}
               onChange={handleChange}
             />

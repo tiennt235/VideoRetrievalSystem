@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 export default function Header() {
   return (
     <Box >
-      <Grid container justifyContent="center" alignItem="center">
+      <Grid container justifyContent="center" alignitem="center">
         <Grid item>
           <Typography variant="h1" textAlign='center' gutterBottom>
             Retrieval System

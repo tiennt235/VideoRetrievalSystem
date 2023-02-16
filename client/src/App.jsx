@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Header from "./components/Header";
 import QueryForm from "./components/QueryForm";
 import ImageGrid from "./components/ImageGrid";
+import SideBar from "./components/Sidebar";
 
 function App() {
   const [imageData, setImageData] = useState();
@@ -13,20 +14,17 @@ function App() {
   const setData = (data) => {
     setImageData(data);
   };
-  const toggleSideBar = ()=>{
-    const width = sidebarWidth.isOpen ? 460 : 0,
-      isOpen =!sidebarWidth.isOpen;
-    setSidebarWidth({sidebarWidth,width,isOpen});
-  };
-
-  console.log(imageData);
+  const [dataSideBar, setDataSideBar] = useState();
 
   return (
-    <Box sx={{ width: "100%"}}>
+    <Box sx={{ width: "100%" }}>
       <Header />
       <QueryForm setData={setData} />
       {/* <ImageGrid imageData={imageData} /> */}
-      {imageData && (<ImageGrid imageData={imageData} />)}
+      {/* {imageData && (<ImageGrid imageData={imageData} />)} */}
+      {(<ImageGrid imageData={imageData} setDataSideBar={setDataSideBar} />)}
+      <SideBar dataFromClick={dataSideBar} widthDynamic={'400px'} />
+      {/* dòng 25 thì dùng fake data chỉnh lại dùng 24 để lấy dữ liệu từ api */}
     </Box>
   );
 }

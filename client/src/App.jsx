@@ -13,6 +13,11 @@ function App() {
   const setData = (data) => {
     setImageData(data);
   };
+  const toggleSideBar = ()=>{
+    const width = sidebarWidth.isOpen ? 460 : 0,
+      isOpen =!sidebarWidth.isOpen;
+    setSidebarWidth({sidebarWidth,width,isOpen});
+  };
 
   console.log(imageData);
 
@@ -20,7 +25,8 @@ function App() {
     <Box sx={{ width: "100%"}}>
       <Header />
       <QueryForm setData={setData} />
-      <ImageGrid imageData={imageData} />
+      {/* <ImageGrid imageData={imageData} /> */}
+      {imageData && (<ImageGrid imageData={imageData} />)}
     </Box>
   );
 }

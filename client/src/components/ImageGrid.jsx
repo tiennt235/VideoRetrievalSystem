@@ -1,17 +1,20 @@
 import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-
+const imageServer = "http://localhost:5003"
 export default function ImageGrid({imageData}) {
+  console.log(imageData)
   return (
-    <ImageList sx={{ }} cols={4} >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
+    <ImageList sx={{ }} cols={5} >
+      {imageData.map((item) => (
+        <ImageListItem key={item.image_path}>
           <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
+            src={`${imageServer}${item.image_path}`}
+            // src={'http://localhost:5003/3Batch_KeyFrames/KeyFramesC02_V00/C02_V0021/013729.jpg'}
+            // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            // alt={item.title}
             loading="lazy"
+            onClick= ""
           />
         </ImageListItem>
       ))}

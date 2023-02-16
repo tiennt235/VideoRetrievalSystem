@@ -22,7 +22,7 @@ export default function QueryForm({ setData }) {
 
     console.log("submited")
     let data = {"query": query,
-    "mode": "caption"}
+                "mode": "caption"}
     fetch(url,{
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     // mode: 'no-cors', // no-cors, *cors, same-origin
@@ -66,6 +66,13 @@ export default function QueryForm({ setData }) {
                 onClick={handleSubmit}
               >
                 Search
+              </Button>
+              <Button
+                variant="outlined"
+                type="submit"
+                
+              >
+                Side bar
               </Button>
             </Box>
           </Grid>

@@ -66,13 +66,7 @@ export default function QueryForm({ setData }) {
               >
                 Search
               </Button>
-              <Button
-                variant="outlined"
-                type="submit"
-                
-              >
-                Side bar
-              </Button>
+            
             </Box>
           </Grid>
         </Grid>

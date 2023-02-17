@@ -58,12 +58,12 @@ export default function ImageGrid({ imageData ,setDataSideBar}) {
   }
   return (
     <ImageList sx={{}} cols={5} >
-      {itemData.map((item) => (
-        // <ImageListItem key={item.image_path}>
-        <ImageListItem key={item.img}>
+      {imageData.map((item) => (
+        <ImageListItem key={item.image_path}>
+        {/* <ImageListItem key={item.img}> */}
           <img
-            // src={`${imageServer}${item.image_path}`}
-            src={item.img}
+            src={`${imageServer}${item.image_path}`}
+            // src={item.img}
             // src={'http://localhost:5003/3Batch_KeyFrames/KeyFramesC02_V00/C02_V0021/013729.jpg'}
             // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
             // alt={item.title}

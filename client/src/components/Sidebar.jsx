@@ -24,7 +24,8 @@ const Sidebar = ({ dataFromClick, widthDynamic }) => {
         <Fragment>
             <div style={styleMap}>
                 <img
-                src={`${imageServer}${dataFromClick.image_path}`}
+                src={`https://images.unsplash.com/photo-1516802273409-68526ee1bdd6`}
+                // src={`${imageServer}${dataFromClick.image_path}`}
                 // src={item.img}
                 // src={'http://localhost:5003/3Batch_KeyFrames/KeyFramesC02_V00/C02_V0021/013729.jpg'}
                 // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -32,10 +33,10 @@ const Sidebar = ({ dataFromClick, widthDynamic }) => {
                 loading="lazy"
                 style={{width:"100%"}}
                 />
-                <YouTube videoId="2g811Eo7K8U" 
+                {/* <YouTube videoId="2g811Eo7K8U" 
                 style={{width:"100%"}}
                 opts={opts}
-                />
+                /> */}
             </div>
         </Fragment>
     );

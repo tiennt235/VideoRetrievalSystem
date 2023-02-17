@@ -1,8 +1,13 @@
 import * as React from "react";
+import { useState } from "react";
+
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import BackdropPlayer from "./BackdropPlayer"
+
 const imageServer = "http://localhost:5003"
-export default function ImageGrid({ imageData ,setDataSideBar}) {
+
+export default function ImageGrid({ imageData }) {
   const itemData = [
     {
       img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
@@ -56,13 +61,38 @@ export default function ImageGrid({ imageData ,setDataSideBar}) {
   const handleClick = (item) => {
     setDataSideBar(item)
   }
+  const [dataSideBar, setDataSideBar] = useState(null)
+  const handleCloseSidebar = () => {
+    console.log('clicked')
+    setDataSideBar(null)
+  }
+  console.log(dataSideBar)
+
+  // return (
+  //   <ImageList sx={{}} cols={5} >
+  //     {imageData.map((item) => (
+  //       <ImageListItem key={item.image_path}>
+  //       {/* <ImageListItem key={item.img}> */}
+  //         <img
+  //           src={`${imageServer}${item.image_path}`}
+  //           // src={item.img}
+  //           // src={'http://localhost:5003/3Batch_KeyFrames/KeyFramesC02_V00/C02_V0021/013729.jpg'}
+  //           // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+  //           // alt={item.title}
+  //           loading="lazy"
+  //           onClick={() => handleClick(item)}
+  //         />
+  //       </ImageListItem>
+  //     ))}
+  //   </ImageList>
+  // );
   return (
     <ImageList sx={{}} cols={5} >
-      {imageData.map((item) => (
-        <ImageListItem key={item.image_path}>
+      {itemData.map((item) => (
+        <ImageListItem key={item.title}>
         {/* <ImageListItem key={item.img}> */}
           <img
-            src={`${imageServer}${item.image_path}`}
+            src={`${item.img}`}
             // src={item.img}
             // src={'http://localhost:5003/3Batch_KeyFrames/KeyFramesC02_V00/C02_V0021/013729.jpg'}
             // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
@@ -72,6 +102,7 @@ export default function ImageGrid({ imageData ,setDataSideBar}) {
           />
         </ImageListItem>
       ))}
+      {dataSideBar && (<BackdropPlayer dataSideBar={dataSideBar} handleCloseSidebar={handleCloseSidebar}/>)}
     </ImageList>
   );
 }

@@ -9,7 +9,7 @@ import Grid from '@mui/material/Grid';
 import SearchIcon from "@mui/icons-material/Search";
 
 const BACKEND_URL = ""
-const url = "http://localhost:2021/process"
+const url = "http://hoangpnapi.hungphu.org/process"
 export default function QueryForm({ setData }) {
   const [query, setQuery] = useState("");
 
@@ -25,7 +25,23 @@ export default function QueryForm({ setData }) {
                 "mode": "caption"}
     fetch(url,{
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    // mode: 'no-cors', // no-cors, *cors, same-origin
+    // mode: '*cors', // no-cors, *cors, same-origin
+    body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((data) => setData(data))
+      .catch(err => console.log('Error: ', err))
+  }
+
+  const handleSubmitOCR = (event) => {
+    event.preventDefault();
+
+    console.log("submited")
+    let data = {"query": query,
+                "mode": "ocr"}
+    fetch(url,{
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    // mode: '*cors', // no-cors, *cors, same-origin
     body: JSON.stringify(data)
     })
       .then((response) => response.json())
@@ -64,10 +80,20 @@ export default function QueryForm({ setData }) {
                 type="submit"
                 onClick={handleSubmit}
               >
-                Search
+                via CLIP
+              </Button>
+
+              <Button
+                variant="outlined"
+                type="submit"
+                onClick={handleSubmitOCR}
+              >
+                via OCR
               </Button>
             
+            
             </Box>
+            
           </Grid>
         </Grid>
       </form>

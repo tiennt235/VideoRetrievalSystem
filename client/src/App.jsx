@@ -20,7 +20,7 @@ function App() {
       <Header />
       <QueryForm setData={setData} />
       {/* <ImageGrid imageData={imageData} /> */}
-      {/*imageData && */(<ImageGrid imageData={imageData}/>)}
+      {imageData && (<ImageGrid imageData={imageData}/>)}
       {/* {(<ImageGrid imageData={imageData} setDataSideBar={setDataSideBar} />)} */}
       {/* {dataSideBar && (<SideBar dataFromClick={dataSideBar} widthDynamic={'600px'} />)} */}
       {/* dòng 25 thì dùng fake data chỉnh lại dùng 24 để lấy dữ liệu từ api */}

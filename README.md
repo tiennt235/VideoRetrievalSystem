@@ -1,3 +1,5 @@
+## Video retrieval System 
+This is system for video retrieval task in AI city HCM 2022
 ## Online demos
 You can test most of our models directly on their pages from the [website](http://hoangpn.hungphu.org).
 
